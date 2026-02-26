@@ -1,0 +1,10 @@
+*.dcd
+*.xtc
+*.trr
+*.nc
+*.log
+*.pdb
+*.prmtop
+*.inpcrd
+__pycache__/
+.ipynb_checkpoints/
