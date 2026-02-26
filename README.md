@@ -1,6 +1,6 @@
 # colab_cuda_openmm_fiber
 
-CUDA-accelerated OpenMM workflow (Google Colab) for a GAFF-parametrized supramolecular s-CBT fiber (21 monomers) in explicit toluene.  
+CUDA-accelerated OpenMM workflow (Google Colab) for a GAFF-parametrized supramolecular fiber (21 monomers) in explicit solvent.  
 This repository supports thesis-grade simulations and analysis by providing a reproducible GPU pipeline and a compact set of morphology-relevant descriptors.
 
 ## Scope
