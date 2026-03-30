@@ -1,6 +1,5 @@
 # colab_cuda_openmm_fiber
-
-CUDA-accelerated OpenMM workflow (Google Colab) for a GAFF-parametrized supramolecular fiber (21 monomers) in explicit solvent.  
+CUDA-accelerated OpenMM workflow (Google Colab) for a GAFF-parametrized supramolecular fiber (21 monomers) in explicit toluene.  
 This repository supports thesis-grade simulations and analysis by providing a reproducible GPU pipeline and a compact set of morphology-relevant descriptors.
 
 ## Scope
@@ -27,10 +26,10 @@ The Colab environment is pinned to OpenMM 8.3.* to avoid CUDA/PTX driver mismatc
 - `environment/env.yml`
 
 ## What is included
+
 ### Simulation
 - `scripts/smoke_test_cuda.py`  
   Minimal CUDA sanity check (minimize + short run) to verify the CUDA platform is active.
-
 - `scripts/run_ramp_cuda.py`  
   Production MD protocol on CUDA:
   - energy minimization  
@@ -44,16 +43,12 @@ The Colab environment is pinned to OpenMM 8.3.* to avoid CUDA/PTX driver mismatc
 ### Analysis (thesis-relevant descriptors)
 - `scripts/analysis_common.py`  
   Shared utilities and constants (trajectory loading, signed dihedral, PCA axis via SVD).
-
 - `scripts/analysis_dihedrals.py`  
   Segmental and fiber-averaged signed dihedral vs temperature using a fixed frame–temperature map.
-
 - `scripts/analysis_dihedral_heatmap.py`  
   Segment-resolved dihedral heatmap along the fiber axis (local torsional heterogeneity).
-
 - `scripts/analysis_stacking_pca.py`  
   PCA-axis (SVD) projected axial stacking distances vs temperature (median + IQR).
-
 - `scripts/analysis_lateral_shift.py`  
   PCA-axis projected lateral displacement vs temperature (median + IQR).
 
@@ -61,7 +56,7 @@ The Colab environment is pinned to OpenMM 8.3.* to avoid CUDA/PTX driver mismatc
 - `scripts/make_fiber_dcd_top.py`  
   Creates fiber-only visualization files:
   - `fiber_only.pdb` (topology)
-  - `fiber_only.dcd` (trajectory)
+  - `fiber_only.dcd` (trajectory)  
   Recommended workflow for ChimeraX/VMD: open PDB first, then load DCD onto the same model.
 
 ## Performance benchmark (Colab Tesla T4)
@@ -76,3 +71,6 @@ Script:
 ## Notes on version control
 Trajectory/topology outputs (e.g., `.dcd`, `.prmtop`, `.inpcrd`, `.pdb`) are excluded via `.gitignore` to keep the repository lightweight.  
 For sharing large artifacts, use external storage (Drive/Zenodo/OSF) and link them from the README if needed.
+
+## Scientific Context
+This workflow was developed as part of PhD research on the self-assembly behavior of supramolecular nanofibers. Structural descriptors extracted from MD trajectories (dihedral angles, axial stacking distances, lateral displacements) were compared against experimental GIWAXS/WAXS data to validate fiber morphology and establish structure–property relationships.
